@@ -34,6 +34,7 @@ internal class ProjectlieContoroller : MonoBehaviour
 
         if (currentDuration > attackData.duration)
         {
+            Debug.Log("사라짐");
             DestroyProjectile(transform.position, false);
         }
 
@@ -73,7 +74,8 @@ internal class ProjectlieContoroller : MonoBehaviour
     {
         if (IsLayerMatched(levelCollisionLayer.value, collision.gameObject.layer))
         {
-            Vector2 destroyPosition = collision.ClosestPoint(transform.position) - direction * 2f;
+            Debug.Log(collision.gameObject.name);
+            Vector2 destroyPosition = collision.ClosestPoint(transform.position) - direction * 0.2f;
             DestroyProjectile(destroyPosition, fxOnDestroy);
         }
         else if(IsLayerMatched(attackData.target.value, collision.gameObject.layer))
@@ -88,6 +90,7 @@ internal class ProjectlieContoroller : MonoBehaviour
                     ApplyKnockback(collision);
                 }
             }
+            Debug.Log("사라짐222");
             // TODO : 데미지를 준다.
             DestroyProjectile(collision.ClosestPoint(transform.position), fxOnDestroy);
         }

@@ -33,6 +33,7 @@ public class TopDownShooting : MonoBehaviour
 
     private void Onshot(AttackSO attackSO)
     {
+        Debug.Log(attackSO);
         RangedAttackSO rangedAttackSO = attackSO as RangedAttackSO;
         float projecttilesAngleSpace = rangedAttackSO.multipleProjectilesAngle;
         int numberOfProjectilesPerShot = rangedAttackSO.numberOfProjectilesPerShot;
@@ -56,11 +57,13 @@ public class TopDownShooting : MonoBehaviour
 
     private void CreateProjectlie(RangedAttackSO rangedAttackSO, float angle)
     {
+        Debug.Log(rangedAttackSO);
         GameObject obj = GameManager.Instance.ObjectPool.SpawnFromPool(rangedAttackSO.bulletNameTag);
         obj.transform.position = projectileSpawnPosition.position;
         ProjectlieContoroller attackController = obj.GetComponent<ProjectlieContoroller>();
         attackController.InitializeAttack(RotateVector2(aimDirection, angle), rangedAttackSO);
     }
+
     private static Vector2 RotateVector2(Vector2 vector, float angle)
     {
         return Quaternion.Euler(0f, 0f, angle) * vector;

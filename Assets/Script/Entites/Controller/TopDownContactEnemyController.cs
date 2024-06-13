@@ -11,6 +11,8 @@ public class TopDownContactEnemyController : TopDownEnemyController
 
     [SerializeField] private SpriteRenderer characterRenderer;
 
+    private HealthSystem healthSystem;
+
     protected override void Start()
     {
         base.Start();
