@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class TopDownAnimationController : AnimationController
 {
-    private static readonly int isWalking = Animator.StringToHash("isWalking");
-    private static readonly int isHit = Animator.StringToHash("isHit");
+    private static readonly int isWalking = Animator.StringToHash("IsWalking");
+    private static readonly int isHit = Animator.StringToHash("IsHit");
     private static readonly int Attack = Animator.StringToHash("attack");
 
     private readonly float magnituteThreshold = 0.5f;
