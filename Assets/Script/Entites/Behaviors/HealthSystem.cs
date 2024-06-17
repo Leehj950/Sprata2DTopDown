@@ -8,7 +8,7 @@ using UnityEngine;
 public class HealthSystem : MonoBehaviour
 {
     [SerializeField] private float healthChangeDelay = 0.5f;
-
+    [SerializeField] private AudioClip damageClip;
     private CharacterStatsHandler statsHandler;
     private float timeSinceLastChange = float.MaxValue;
     private bool isAttacked = false;
@@ -70,7 +70,11 @@ public class HealthSystem : MonoBehaviour
         {
             OnDamage?.Invoke();
             isAttacked = true;
+
+            if (damageClip) SoundManager.PlayClip(damageClip);
         }
+
+
 
         return true;
     }
